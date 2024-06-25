@@ -5,7 +5,7 @@ POST {{baseUrl}}/directors
 Content-Type: application/json
 
 {
-  "name": "Christopher Nolan"
+  "name": "Johnathan Demme"
 }
 
 ###
@@ -29,3 +29,42 @@ Content-Type: application/json
 # @name delete_director
 DELETE {{baseUrl}}/directors/c52f684a-3c85-4c45-8c55-51208b3e7793/delete
 Content-Type: application/json
+
+###
+
+# @name create_movie
+POST {{baseUrl}}/movies
+Content-Type: application/json
+
+{
+  "title": "O Silêncio dos Inocentes",
+  "dateRelease": "1991-05-17T14:30:00.000Z",
+  "directorId": "4941a8bf-b839-4a3a-a056-5a93bdaf17dc",
+  "genre": "THRILLER"
+}
+
+###
+
+# @name update_movie
+PATCH {{baseUrl}}/movies/638ea65d-9050-4d53-b27a-485b35d03dea/update
+Content-Type: application/json
+
+{
+  "cover": "https://upload.wikimedia.org/wikipedia/pt/0/0a/Silence_of_the_lambs.png"
+}
+
+###
+
+# @name list_movie
+GET {{baseUrl}}/movies
+Content-Type: application/json
+
+###
+
+# @name list_movie_by_genre
+GET {{baseUrl}}/movies/genre
+Content-Type: application/json
+
+{
+  "genre": "THRILLER"
+}

@@ -3,9 +3,10 @@ import { CreateDirectorController } from './controllers/create-director-controll
 import { GetDirectorController } from './controllers/get-director-controller'
 import { UpdateDirectorController } from './controllers/update-director-controller'
 import { DeleteDirectorController } from './controllers/delete-director-controller'
-import { CreateGenreController } from './controllers/create-genre-controller'
-import { UpdateGenreController } from './controllers/update-genre-controller'
-import { DeleteGenreController } from './controllers/delete-genre-controller'
+import { CreateMovieController } from './controllers/create-movie-controller'
+import { UpdateMovieController } from './controllers/update-movie-controller'
+import { ListMoviesController } from './controllers/list-movies-controller'
+import { ListMoviesByGenreController } from './controllers/list-movies-by-genre-controller'
 
 export const routes = Router()
 
@@ -13,9 +14,10 @@ const createDirectorController = new CreateDirectorController()
 const getDirectorController = new GetDirectorController()
 const updateDirectorController = new UpdateDirectorController()
 const deleteDirectorController = new DeleteDirectorController()
-const createGenreController = new CreateGenreController()
-const updateGenreController = new UpdateGenreController()
-const deleteGenreController = new DeleteGenreController()
+const createMovieController = new CreateMovieController()
+const updateMovieController = new UpdateMovieController()
+const listMoviesController = new ListMoviesController()
+const listMoviesByGenreController = new ListMoviesByGenreController()
 
 routes.post('/v1/directors', createDirectorController.handle)
 routes.get('/v1/directors/:directorId', getDirectorController.handle)
@@ -24,6 +26,7 @@ routes.delete(
   '/v1/directors/:directorId/delete',
   deleteDirectorController.handle,
 )
-routes.post('/v1/genres', createGenreController.handle)
-routes.put('/v1/genres/:genreId/update', updateGenreController.handle)
-routes.delete('/v1/genres/:genreId/delete', deleteGenreController.handle)
+routes.post('/v1/movies', createMovieController.handle)
+routes.patch('/v1/movies/:movieId/update', updateMovieController.handle)
+routes.get('/v1/movies', listMoviesController.handle)
+routes.get('/v1/movies/genre', listMoviesByGenreController.handle)

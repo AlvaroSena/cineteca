@@ -7,14 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Genre {
-  id   String @id @default(uuid())
-  name String
+// model Genre {
+//   id   String @id @default(uuid())
+//   name String
 
-  movies Movie[]
+//   movies Movie[]
 
-  @@map("genres")
-}
+//   @@map("genres")
+// }
 
 model Movie {
   id          String   @id @default(uuid())
@@ -22,11 +22,10 @@ model Movie {
   cover       String?
   dateRelease DateTime @map("date_release")
   directorId  String   @map("director_id")
-  genreId     String   @map("genre_id")
+  genre       Genre
   createdAt   DateTime @default(now()) @map("created_at")
 
   Director Director @relation(fields: [directorId], references: [id])
-  Genre    Genre    @relation(fields: [genreId], references: [id])
   players  Player[]
 
   @@map("movies")
@@ -48,4 +47,20 @@ model Player {
   Movie Movie @relation(fields: [movieId], references: [id])
 
   @@map("players")
+}
+
+enum Genre {
+  THRILLER
+  ACTION
+  DRAMA
+  COMEDY
+  ROMANCE
+  HORROR
+  FICTION
+  CRIME
+  HISTORY
+  ADVENTURE
+  MUSICAL
+  ROMANTIC_COMEDY
+  WAR
 }
