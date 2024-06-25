@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:8080/v1
+
+# @name create_director
+POST {{baseUrl}}/directors
+Content-Type: application/json
+
+{
+  "name": "Christopher Nolan"
+}
+
+###
+
+# @name get_director
+GET {{baseUrl}}/directors/c52f684a-3c85-4c45-8c55-51208b3e7793
+Content-Type: application/json
+
+###
+
+# @name update_director
+PUT {{baseUrl}}/directors/c52f684a-3c85-4c45-8c55-51208b3e7793/update
+Content-Type: application/json
+
+{
+  "name": "Nolan, Christopher"
+}
+
+###
+
+# @name delete_director
+DELETE {{baseUrl}}/directors/c52f684a-3c85-4c45-8c55-51208b3e7793/delete
+Content-Type: application/json
