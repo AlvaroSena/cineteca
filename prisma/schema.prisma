@@ -20,6 +20,7 @@ model Movie {
   id          String   @id @default(uuid())
   title       String
   cover       String?
+  slug        String   @unique
   dateRelease DateTime @map("date_release")
   directorId  String   @map("director_id")
   genre       Genre

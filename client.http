@@ -5,7 +5,7 @@ POST {{baseUrl}}/directors
 Content-Type: application/json
 
 {
-  "name": "Johnathan Demme"
+  "name": "David Fincher"
 }
 
 ###
@@ -38,7 +38,7 @@ Content-Type: application/json
 
 {
   "title": "O Silêncio dos Inocentes",
-  "dateRelease": "1991-05-17T14:30:00.000Z",
+  "dateRelease": "1991-02-13T14:30:00.000Z",
   "directorId": "4941a8bf-b839-4a3a-a056-5a93bdaf17dc",
   "genre": "THRILLER"
 }
@@ -55,7 +55,7 @@ Content-Type: application/json
 
 ###
 
-# @name list_movie
+# @name list_movies
 GET {{baseUrl}}/movies
 Content-Type: application/json
 
@@ -66,19 +66,19 @@ GET {{baseUrl}}/movies/genre
 Content-Type: application/json
 
 {
-  "genre": "THRILLER"
+  "genre": "FICTION"
 }
 
 ###
 
 # @name get_movie
-GET {{baseUrl}}/movies/638ea65d-9050-4d53-b27a-485b35d03dea
+GET {{baseUrl}}/movies/ff3db394-5c9d-4e82-97c4-82699fc3db62
 Content-Type: application/json
 
 ###
 
 # @name create_player
-POST {{baseUrl}}/players/638ea65d-9050-4d53-b27a-485b35d03dea
+POST {{baseUrl}}/players/ccec8600-d539-4689-832c-b60d81566332
 Content-Type: application/json
 
 {
