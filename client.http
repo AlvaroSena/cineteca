@@ -67,7 +67,7 @@ Content-Type: application/json
 ###
 
 # @name list_movies_by_genre
-GET {{baseUrl}}/movies/genre
+GET {{baseUrl}}/movies/genre?q=thriller
 Content-Type: application/json
 
 {
