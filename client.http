@@ -37,10 +37,15 @@ POST {{baseUrl}}/movies
 Content-Type: application/json
 
 {
-  "title": "O Silêncio dos Inocentes",
-  "dateRelease": "1991-02-13T14:30:00.000Z",
-  "directorId": "4941a8bf-b839-4a3a-a056-5a93bdaf17dc",
-  "genre": "THRILLER"
+  "title": "O Dragão Vermelho",
+  "dateRelease": "2002-11-01T14:30:00.000Z",
+  "directorId": "2d48c5eb-a664-4636-b455-7e2d1c6ce39a",
+  "genre": "THRILLER",
+  "players": [
+    {
+      "videoURL": "https://www.mmfilmes.me/dragao-vermelho/"
+    }
+  ]
 }
 
 ###

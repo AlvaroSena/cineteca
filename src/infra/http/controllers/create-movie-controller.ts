@@ -5,7 +5,8 @@ import { NotFoundError } from '../../../core/errors/NotFoundError'
 export class CreateMovieController {
   async handle(request: Request, reply: Response) {
     try {
-      const { title, cover, dateRelease, directorId, genre } = request.body
+      const { title, cover, dateRelease, directorId, genre, players } =
+        request.body
 
       const createMovie = new CreateMovie()
       await createMovie.execute({
@@ -14,6 +15,7 @@ export class CreateMovieController {
         dateRelease,
         directorId,
         genre,
+        players,
       })
 
       return reply.status(201).send()

@@ -3,12 +3,17 @@ import { Genre } from '@prisma/client'
 import { NotFoundError } from '../errors/NotFoundError'
 import { generateSlug } from '../lib/generate-slug'
 
+interface Player {
+  videoURL: string
+}
+
 interface CreateMovieRequest {
   title: string
   cover?: string
   dateRelease: string
   directorId: string
   genre: Genre
+  players: Player[]
 }
 
 export class CreateMovie {
@@ -18,6 +23,7 @@ export class CreateMovie {
     dateRelease,
     directorId,
     genre,
+    players,
   }: CreateMovieRequest) {
     const director = await prisma.director.findUnique({
       where: {
@@ -37,6 +43,13 @@ export class CreateMovie {
         dateRelease,
         directorId,
         genre,
+        players: {
+          createMany: {
+            data: players.map((player) => {
+              return { videoURL: player.videoURL }
+            }),
+          },
+        },
       },
     })
   }
