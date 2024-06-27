@@ -61,10 +61,32 @@ Content-Type: application/json
 
 ###
 
-# @name list_movie_by_genre
+# @name list_movies_by_genre
 GET {{baseUrl}}/movies/genre
 Content-Type: application/json
 
 {
   "genre": "THRILLER"
 }
+
+###
+
+# @name get_movie
+GET {{baseUrl}}/movies/638ea65d-9050-4d53-b27a-485b35d03dea
+Content-Type: application/json
+
+###
+
+# @name create_player
+POST {{baseUrl}}/players/638ea65d-9050-4d53-b27a-485b35d03dea
+Content-Type: application/json
+
+{
+  "videoURL": "https://www.mmfilmes.me/o-silencio-dos-inocentes/"
+}
+
+###
+
+# @name delete_movie
+DELETE {{baseUrl}}/movies/638ea65d-9050-4d53-b27a-485b35d03dea/delete
+Content-Type: application/json

@@ -1,12 +1,13 @@
 import { prisma } from '../../infra/prisma'
 import { NotFoundError } from '../errors/NotFoundError'
 
-interface DeleteMovieRequest {
+interface CreatePlayerRequest {
   movieId: string
+  videoURL: string
 }
 
-export class DeleteMovie {
-  async execute({ movieId }: DeleteMovieRequest) {
+export class CreatePlayer {
+  async execute({ movieId, videoURL }: CreatePlayerRequest) {
     const movie = await prisma.movie.findUnique({
       where: {
         id: movieId,
@@ -17,10 +18,15 @@ export class DeleteMovie {
       throw new NotFoundError('Movie not found')
     }
 
-    await prisma.movie.delete({
-      where: {
-        id: movie.id,
+    const player = await prisma.player.create({
+      data: {
+        movieId,
+        videoURL,
       },
     })
+
+    return {
+      player,
+    }
   }
 }

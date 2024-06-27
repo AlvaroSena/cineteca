@@ -40,11 +40,11 @@ model Director {
 }
 
 model Player {
-  id        String @id @default(uuid())
-  video_url String
-  movieId   String @map("movie_id")
+  id       String @id @default(uuid())
+  videoURL String @map("video_url")
+  movieId  String @map("movie_id")
 
-  Movie Movie @relation(fields: [movieId], references: [id])
+  Movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
 
   @@map("players")
 }
