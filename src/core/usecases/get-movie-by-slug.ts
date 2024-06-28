@@ -13,7 +13,6 @@ export class GetMovieBySlug {
       },
       include: {
         players: true,
-        Director: true,
       },
     })
 

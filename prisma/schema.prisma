@@ -22,22 +22,13 @@ model Movie {
   cover       String?
   slug        String   @unique
   dateRelease DateTime @map("date_release")
-  directorId  String   @map("director_id")
+  director    String
   genre       Genre
   createdAt   DateTime @default(now()) @map("created_at")
 
-  Director Director @relation(fields: [directorId], references: [id])
-  players  Player[]
+  players Player[]
 
   @@map("movies")
-}
-
-model Director {
-  id     String  @id @default(uuid())
-  name   String
-  movies Movie[]
-
-  @@map("directors")
 }
 
 model Player {
